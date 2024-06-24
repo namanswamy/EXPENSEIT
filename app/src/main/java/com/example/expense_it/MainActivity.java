@@ -29,5 +29,11 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerexpense);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        expenselist.add(new ExpenseModel("Grocery Items","+90Rs"));
+
+        RecyclerExpenseAdapter adapter = new RecyclerExpenseAdapter(this,expenselist);
+        recyclerView.setAdapter(adapter);
+
     }
 }

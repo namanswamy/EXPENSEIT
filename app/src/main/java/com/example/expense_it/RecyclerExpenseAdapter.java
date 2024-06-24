@@ -9,12 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class RecyclerExpenseAdapter extends RecyclerView.Adapter<RecyclerExpenseAdapter.ViewHolder> {
 
     Context context;
+    ArrayList<ExpenseModel> expenselist;
 
-    RecyclerExpenseAdapter(Context context){
+    RecyclerExpenseAdapter(Context context, ArrayList<ExpenseModel> expenselist){
         this.context=context;
+        this.expenselist = expenselist;
     }
 
 
@@ -29,12 +33,14 @@ public class RecyclerExpenseAdapter extends RecyclerView.Adapter<RecyclerExpense
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.expensename.setText(expenselist.get(position).expensename);
+        holder.expenseamount.setText(expenselist.get(position).expenseamount);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return expenselist.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
