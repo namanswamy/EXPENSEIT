@@ -1,6 +1,7 @@
 package com.example.expense_it;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,11 +11,14 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<ExpenseModel> expenselist = new ArrayList<>();
+    FloatingActionButton btnOpenDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerExpenseAdapter adapter = new RecyclerExpenseAdapter(this,expenselist);
         recyclerView.setAdapter(adapter);
+
+        btnOpenDialog = findViewById(R.id.btnOpenDialog);
+
+        btnOpenDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 }
