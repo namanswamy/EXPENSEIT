@@ -1,7 +1,11 @@
 package com.example.expense_it;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,7 +48,42 @@ public class MainActivity extends AppCompatActivity {
         btnOpenDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setContentView(R.layout.addexpensedialogbox);
 
+                EditText expenseadd = findViewById(R.id.expenseadd);
+                EditText amountadd = findViewById(R.id.anountadd);
+                Button btnAdd = findViewById(R.id.btnAdd);
+
+                btnAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        String expense = "" , money = "";
+
+                        if(!expenseadd.getText().toString().equals("")){
+                            expense = expenseadd.getText().toString();
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "Enter the expense name", Toast.LENGTH_SHORT).show();
+                        }
+
+                        if(!amountadd.getText().toString().equals("")){
+                            money = amountadd.getText().toString();
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "Enter amount", Toast.LENGTH_SHORT).show();
+                        }
+
+                        expenselist.add(new ExpenseModel(expense,money));
+                        adapter.notifyItemInserted(expenselist.size()-1);
+                        recyclerView.scrollToPosition(expenselist.size()-1);
+
+                        dialog.dismiss();
+
+                    }
+                });
+                dialog.show();
             }
         });
 

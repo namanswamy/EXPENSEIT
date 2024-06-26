@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/design_default_color_secondary"
     android:paddingLeft="21dp"
     android:paddingRight="21dp"
@@ -14,10 +15,44 @@
         android:gravity="center"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="#fff"
+        android:textColor="@color/black"
         android:id="@+id/txtTitle"
         android:layout_margin="21dp"
-        android:text="Add Contact"/>
+        android:text="Add Expense"/>
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Expense Name"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/expenseadd"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Amount"
+        android:background="#fff"
+        android:padding="11dp"
+        android:id="@+id/anountadd"
+        android:layout_marginBottom="11dp"
+        android:inputType="text"/>
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/btnAdd"
+        android:backgroundTint="#fff"
+        android:textColor="@color/black"
+        android:layout_gravity="end"
+        app:cornerRadius="0dp"/>
+
+
+
+
 
 
 </LinearLayout>
