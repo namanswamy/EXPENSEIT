@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 Dialog dialog = new Dialog(MainActivity.this);
                 dialog.setContentView(R.layout.addexpensedialogbox);
 
-                EditText expenseadd = findViewById(R.id.expenseadd);
-                EditText amountadd = findViewById(R.id.anountadd);
-                Button btnAdd = findViewById(R.id.btnAdd);
+                EditText expenseadd = dialog.findViewById(R.id.expenseadd);
+                EditText amountadd = dialog.findViewById(R.id.anountadd);
+                Button btnAdd = dialog.findViewById(R.id.btnAdd);
 
                 btnAdd.setOnClickListener(new View.OnClickListener() {
                     @Override
